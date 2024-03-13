@@ -21,5 +21,5 @@ from pinapi.views import baseSearchResource, pinPage
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('BaseSearchResource/', baseSearchResource),
-    path("pin/<str:id>/", pinPage),
+    path("pin/<str:pk>/", pinPage),
 ]
