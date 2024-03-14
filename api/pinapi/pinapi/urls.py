@@ -16,10 +16,9 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import include, path
-from pinapi.views import baseSearchResource, pinPage
+from pinapi.views import baseSearchResource
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('BaseSearchResource/', baseSearchResource),
-    path("pin/<str:pk>/", pinPage),
 ]

@@ -7,18 +7,16 @@ from rest_framework.response import Response
 @api_view(['GET'])
 def baseSearchResource(request):
 
-    # body = request.body
+    query = request.query_params.get('q')
+    bookmark = request.query_params.get('bookmark')
 
-    query = 'cats'
-
-    url = f'https://www.pinterest.com/resource/BaseSearchResource/get/?data={{"options":{{"query":"{query}"}}}}'
+    if bookmark:
+        url = f'https://www.pinterest.com/resource/BaseSearchResource/get/?data={{"options":{{"query":"{query}","bookmarks":["{bookmark}"]}}}}'
+    else:
+        url = f'https://www.pinterest.com/resource/BaseSearchResource/get/?data={{"options":{{"query":"{query}"}}}}'
 
     resp = requests.get(url, timeout=30000)
 
     results = resp.json()
 
     return Response(results)
-
-@api_view(['GET'])
-def pinPage(request, pk):
-    return Response({"hello welcome to this page": pk})
