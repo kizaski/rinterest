@@ -59,7 +59,6 @@ function App() {
 
   return (
     <>
-      {/* on search items-center becomes items-start */}
       <div id='search-bar' ref={searchBarRef} className="flex justify-center items-center h-screen">
       {/* <div id='search-bar' ref={searchBarRef} className="flex justify-center items-start my-7"> */}
         <input 
