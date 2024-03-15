@@ -41,8 +41,6 @@ function App() {
       setPins(newPins)
 
       setBookmark(res.data.resource.options.bookmarks[0])
-      // setBookmark('Y2JVSG81V2sxcmNHRlpWM1J5VFVaU1YxWllhRlJXTVVreVZsZDRRMVV4U1hsVlZFWlhVbnBXTTFWNlNrZFdNa3BIWVVaYVdGSXlhRkZXUm1Rd1ZtMVJlRlZ1VWs1V1ZGWlBXVmh3UjFac1draE5WRkpWVFd0YWVWUnNhRXRYUmxsNlVXMUdWVlpzY0hsYVZscExWbFpXZEZKc1RsTmlXRkV4Vm10U1IxVXhUbkpPVlZwUVZsWmFXVmxzYUZOVU1YQllaRVYwYWxKc1NubFhhMVpoWWtaYVZWWnVhRmRpUmtwVVYxWmFTbVF3TVZWV2JGWk9VbXR3U1ZkWGVGWmxSVFYwVW10b2FGSnJTbGhWYlhoYVRXeFplVTFZWkZOaGVrWjVWR3hhVjFadFNsVlNibEpXWWtaS1dGVnFSbUZqVmxKeFZHeEdWbFpFUVRWYWExcFhVMWRLTmxWdGVGZE5XRUpLVm10amVHSXhiRmRUV0dob1RUSlNXVmxVUmt0VU1WSlhWbGhvYWxZd2NFbFpWVlUxWVVkRmVGZFljRmRTTTFKeVZqSXhWMk15VGtkV2JFcFlVakpvYUZadGRHRlpWMDVYVlc1S1ZtSnJOVzlVVm1RMFpVWldjMVZzVGxWaVJYQkpXWHBPYzFaV1dsZFRia1poVmpOTmVGVnNXbE5YVjBwR1QxWmtVMDFFUWpOV2FrbDRaREZrZEZac1pHbFRSa3BXVm10Vk1XRkdiRmhOVjNCc1lrWktlbGRyV21GVWJFcDFVVzVvVmxac1NraFdSRVpMVWpKS1JWZHNhRmRpUlhCRVYyeGFWbVZIVWtkVGJrWm9VbXhhYjFSV1duZFhiR1IwWkVWYVVGWnJTbE5WUmxGNFQwVXhObFJVVWs1bGJHdDVWRmN4U2sxR2NFVlhiV3hoWWxWcmQxUnJVbkpsVm14WVVtMXNXbFpGVmpOWFYzQnVUVEZyZVZKWWNFOVdSVEF3VjJ4U1FrMVdiRFpWVkU1aFlsWktjRmRyWkU5aVJteHhWbGh3V2sxc1NtOVVWbVJHWkRBeFNGTnRNVTVoYkhCdlZGWmtWazFzYTNwbFJUbFRWbTFSTkdaSFZteFBSRWt3VG1wRk1FNVVVVE5OVkUxNFRWZEplRTVFVm0xYWJVWnFXWHBWTkU5WFdtbFpWRTAwVFVkR2FVOUVVbTFOVkdoc1RtcEZlRTFxUlRKT01rbDVXbXBzYUZscVNYaE9SRlUwVG5wYWFFMTZaRGhVYTFaWVprRTlQUT09fFVIbzVSVlJHVGxCV2VrWnBaVmRLUlZWVU1XWk9WRUptVEZSR09FMXRVVEpOUjFWNFdYcG5lVTE2VFRKYWFsVjVUa1JKTUZsVVJUVk5lbVJ0VG0xVk0wNUVZelZaVkVreFQxZGFhMXBYVFRCTlYwazBUbnBrYlU1SFdYaE5SRVV5VFcxUmVrNHlTbXhOZWsxM1RsUm5lRTFJZUU5U1ZtUTR8Tm9uZXxlOGEzNTFkNTYyZmY0NWI0MTk1OWJmMWRmMTNlNGM0NTkwYTlhZDJiOGQwZjE5OWRlNmM1ZmFmZDJkZTk5ZGQ5fE5FV3w=')
-      // console.log(res.data.resource.options.bookmarks[0])
       
       if (searchBarRef.current) {
         searchBarRef.current.className = searchBarRef.current.className.replace('items-center h-screen','items-start my-7')
@@ -74,12 +72,13 @@ function App() {
         />
         <button onClick={handleNewSearch} className="bg-blue-400 text-white px-4 py-2 rounded-3xl ml-2">Search</button>
       </div>
-      <div id='pins-container' className='columns-3xs gap-4'>
+      {/* <div id='pins-container' className='columns-2 sm:columns-3xs gap-4'> */}
+      <div id='pins-container' className='grid grid-cols-2 sm:grid-cols-4 gap-4'>
         {pins && pins.map((pin) => {
           return <img className='mb-8' key={pin.images['736x'].url} src={ pin.images['736x'].url } />
         })}
       </div>
-      {pins && 
+      {pins.length !== 0 && 
       <div>
         <button onClick={handleLoadMore} className="bg-blue-400 text-white px-2 py-2 rounded-3xl w-full">Load more</button>
       </div>
