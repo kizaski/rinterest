@@ -81,7 +81,7 @@ function App() {
 
       {pins.length !== 0 && 
       <div>
-        <button onClick={handleLoadMore} className="bg-blue-400 text-white px-2 py-2 rounded-3xl w-full">Load more</button>
+        <button onClick={handleLoadMore} className="bg-blue-400 text-white px-2 py-2 w-full">Load more</button>
       </div>
       }
       
