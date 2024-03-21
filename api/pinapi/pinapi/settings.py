@@ -27,7 +27,7 @@ SECRET_KEY = 'django-insecure-zrt+vqog0g(l-_%#4m!b^h+bbow#n5vz_euq2lmz3b4s)0r9os
 DEBUG = True
 # DEBUG = False
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ["rinterest-2.onrender.com"]
 
 
 # Application definition
