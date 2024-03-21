@@ -1,58 +1,59 @@
 
+FROM nginx:latest
+
+# Remove the default Nginx configuration file
+RUN rm -rf /etc/nginx/conf.d/default.conf
+
+# Copy custom Nginx configuration file
+COPY nginx.conf /etc/nginx/conf.d/
+
+# Copy built Vite app
+COPY /frontend/dist /usr/share/nginx/html
+
+EXPOSE 80
 
 
-# copy api
-# pip install requirements
-# cd pinapi
-# python manage.py runserver
+# FROM node:18.13.0-alpine AS builder
+# WORKDIR /app/frontend
+# COPY ./frontend/package*.json ./
+# RUN npm install
+# COPY ./frontend ./
+# ARG VITE_BASE_URL
+# RUN echo "VITE_BASE_URL:${VITE_BASE_URL}"
+# RUN echo "VITE_BASE_URL${VITE_BASE_URL}" >> .env
+# RUN npm run build
 
-# copy frontend
-# npm install
-# npm build
-# FROM nginx
-# COPY /path/to/dist /var/share/nginx/html
-# https://www.reddit.com/r/docker/comments/99wsmt/simplest_way_to_serve_a_static_website/
+# FROM nginx:1.21.0-alpine
+# COPY --from=builder /app/frontend/dist /usr/share/nginx/html
+# COPY ./nginx.conf /etc/nginx/conf.d/default.conf
 
-
-
-FROM node:18.13.0-alpine AS builder
-WORKDIR /app/frontend
-COPY ./frontend/package*.json ./
-RUN npm install
-COPY ./frontend ./
-ARG VITE_BASE_URL
-RUN echo "VITE_BASE_URL:${VITE_BASE_URL}"
-RUN echo "VITE_BASE_URL${VITE_BASE_URL}" >> .env
-RUN npm run build
-
-FROM nginx:1.21.0-alpine
-COPY --from=builder /app/frontend/dist /usr/share/nginx/html
-COPY ./frontend/nginx.conf /etc/nginx/conf.d/default.conf
-
-CMD ["nginx", "-g", "daemon off;"]
+# CMD ["nginx", "-g", "daemon off;"]
 
 
 
-# WORKDIR /app/api
+
+# # copy api
+# # pip install requirements
+# # cd pinapi
+# # python manage.py runserver
 
 # FROM python:3-alpine
+
+# WORKDIR /app/api
 
 # ENV PYTHONDONTWRITEBYTECODE 1
 # ENV PYTHONUNBUFFERED 1
 
-# RUN \
-#  apk add --no-cache postgresql-libs && \
-#  apk add --no-cache --virtual .build-deps gcc musl-dev postgresql-dev && \
-#  apk --purge del .build-deps
-
 # RUN pip install --upgrade pip
-# COPY ./api .
+# COPY ./api ./
 # RUN pip install -r ./requirements.txt
 
-# COPY ./api ./api
+# ## gunicorn or smth
+# ## nginx
+# # FROM nginx:1.21.0-alpine
+# # COPY ./api/nginx.conf /etc/nginx/conf.d/default.conf
 
-## gunicorn or smth
-
+# # CMD ["nginx", "-g", "daemon off;"]
 
 
 
