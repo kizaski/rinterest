@@ -12,6 +12,9 @@ COPY /frontend/dist /usr/share/nginx/html
 
 EXPOSE 80
 
+# run with 
+# docker-compose -f docker-compose.yml up -d --build
+
 
 # FROM node:18.13.0-alpine AS builder
 # WORKDIR /app/frontend
