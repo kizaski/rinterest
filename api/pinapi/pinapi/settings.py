@@ -11,6 +11,12 @@ https://docs.djangoproject.com/en/5.0/ref/settings/
 """
 
 from pathlib import Path
+import os
+from dotenv import load_dotenv, dotenv_values
+
+# load_dotenv()
+
+dotenv_vals = dotenv_values('.env')
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -23,9 +29,13 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-zrt+vqog0g(l-_%#4m!b^h+bbow#n5vz_euq2lmz3b4s)0r9os'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = bool(int(os.environ.get('DEBUG' ,0)))
+# DEBUG = bool(int(os.environ.get('DEBUG',0)))
+DEBUG = bool(int(dotenv_vals.get('DEBUG',0)))
+# DEBUG = True
+# print(os.environ['DEBUG'])
+# print(dotenv_vals.get('DEBUG',0))
 
-ALLOWED_HOSTS = ["rinterest-2.onrender.com"]
+ALLOWED_HOSTS = ["*"]
 
 
 # Application definition
