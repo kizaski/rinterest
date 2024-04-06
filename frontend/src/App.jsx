@@ -1,12 +1,6 @@
 import { useState, useRef } from 'react'
 import axios from 'axios'
 
-// TODO
-// list pins like pinterest does it in clean columns
-// animation on search button pressed
-// rinterest logo above search bar
-//
-
 function App() {
   const [pins, setPins] = useState([])
   const [searchTerm, setSearchTerm] = useState('')
