@@ -60,6 +60,7 @@ function App() {
   return (
     <>
       <div id='search-bar' ref={searchBarRef} className="flex justify-center items-center h-screen">
+      {/* <div id='search-bar' ref={searchBarRef} className="flex justify-center items-start my-7"> */}
         <input 
           type="text" 
           placeholder="Search Pinterest" 
@@ -71,7 +72,7 @@ function App() {
         <button onClick={handleNewSearch} className="bg-blue-400 text-white px-4 py-2 rounded-3xl ml-2">Search</button>
       </div>
 
-      {/* todo array of columns and in it array of imgs */}
+      {/* <div id='pins-container' className='columns-2 sm:columns-3xs gap-4'> */}
       <div id='pins-container' className='grid grid-cols-2 sm:grid-cols-4 md:grid-cols-5 gap-4'>
         {pins && pins.map((pin) => {
           return <img className='mb-8' key={pin.images['736x'].url} src={ pin.images['736x'].url } />
