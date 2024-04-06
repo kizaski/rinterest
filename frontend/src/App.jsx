@@ -11,10 +11,13 @@ function App() {
     try {
       const res = await axios.get('BaseSearchResource', {
         params: { 
-          q: searchTerm
+          // format: 'json',
+          q: searchTerm,
         }
       })
   
+      console.log(res)
+
       setPins(res.data.resource_response.data.results)
       
       setBookmark(res.data.resource.options.bookmarks[0])
@@ -32,6 +35,7 @@ function App() {
     try {
       const res = await axios.get('BaseSearchResource', {
         params: { 
+          // format: 'json',
           q: searchTerm,
           bookmark: bookmark
         }
