@@ -1,6 +1,12 @@
 import { useState, useRef } from 'react'
 import axios from 'axios'
 
+// TODO
+// list pins like pinterest does it in clean columns
+// animation on search button pressed
+// rinterest logo above search bar
+//
+
 function App() {
   const [pins, setPins] = useState([])
   const [searchTerm, setSearchTerm] = useState('')
@@ -60,6 +66,7 @@ function App() {
   return (
     <>
       <div id='search-bar' ref={searchBarRef} className="flex justify-center items-center h-screen">
+        <img src="pinterest-svgrepo-com.svg" alt="Logo" className="h-10 px-4" />
         <input 
           type="text" 
           placeholder="Search Pinterest" 
