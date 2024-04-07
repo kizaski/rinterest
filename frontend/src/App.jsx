@@ -69,7 +69,14 @@ function App() {
           onChange={ ( e ) => setSearchTerm( e.target.value ) }
           onKeyDown={ handleKeyDown }
         />
-        <button onClick={handleNewSearch} className="bg-blue-400 text-white px-4 py-2 rounded-3xl ml-2 active:py-1 active:px-2 self-center">Search</button>
+
+        <button
+          onClick={handleNewSearch}
+          className="bg-blue-400 text-white px-4 py-2 rounded-3xl ml-2 active:bg-blue-500 active:text-gray-100 active:px-2 active:py-1 transition-all duration-50"
+        >
+          Search
+        </button>
+
       </div>
 
       {/* todo array of columns and in it array of imgs */}
